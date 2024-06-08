@@ -1,0 +1,8 @@
+{
+    "watch": [
+        "public/ts/server"
+    ],
+    "ext": ".ts",
+    "ignore": [],
+    "exec": "npx tsc public/ts/server/index.ts --outDir dist"
+}
