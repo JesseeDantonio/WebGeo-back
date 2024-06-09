@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     mode: 'development',
     devtool: 'source-map',
-    entry: './public/ts/client/index.ts', // Remplacez par le chemin de votre fichier JavaScript principal
+    entry: './public/ts/server/index.ts', // Remplacez par le chemin de votre fichier JavaScript principal
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
