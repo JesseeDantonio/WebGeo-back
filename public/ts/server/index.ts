@@ -6,7 +6,6 @@ import cors from 'cors';
 
 
 const dirname = path.resolve();
-
 const publicPath = path.join(dirname, 'public');
 
 
@@ -37,7 +36,6 @@ APP.get('/api/connect/:host/:port/:database/:user/:password', async (req, res) =
 
 APP.get('/api/entity/:schema/:table', async (req, res) => {
     const { schema, table } = req.params;
-    //console.log(schema + " " + table);
     try {
         const tasks = await CONNECTION?.getPool().query(`SELECT id, ST_AsGeoJSON(ST_Transform(geom, 3857)) FROM "${schema}"."${table}"`);
         res.json(tasks?.rows);
@@ -50,7 +48,6 @@ APP.get('/api/entity/:schema/:table', async (req, res) => {
 
 APP.get('/api/entity/:schema/:table/:id', async (req, res) => {
     const { schema, table, id } = req.params;
-    //console.log(schema + " " + table);
     try {
         const tasks = await CONNECTION?.getPool().query(`SELECT * FROM "${schema}"."${table}" WHERE id = ${id}`);
         res.json(tasks?.rows);
